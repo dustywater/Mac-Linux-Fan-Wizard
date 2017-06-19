@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function help () {
-    echo -e "Version: 1.0\n\nUsage: macfan OPTION [FAN] [SPEED]\n\nOptions:\nhelp = Show this help screen\nspeed = Change speed of your chosen fan\nlist = List Mac fans\n\nThanks for using Mac Linux Fan Wizard!\n"
+    echo -e "Version: 1.0\n\nUsage: macfan OPTION [FAN] [SPEED]\n\nOptions:\nhelp = Show this help screen\nspeed = Change speed of your chosen fan\nlist = List Mac fans\ninstall = Install this script to your system\n\nThanks for using Mac Linux Fan Wizard!\n"
     exit 0
 }
 
