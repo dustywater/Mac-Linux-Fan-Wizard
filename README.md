@@ -9,5 +9,6 @@ Help:
     help = Show this help screen 
     speed = Change speed of your chosen fan
     list = List Mac fans
+    install = Install this script to your system
     
     Thanks for using Mac Linux Fan Wizard!
