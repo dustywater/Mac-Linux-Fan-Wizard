@@ -15,7 +15,7 @@ fi
 if [ "$1" = "list" ]; then
     echo Here are the fans I found:
     ls /sys/devices/platform/applesmc.768/ | grep -Eo 'fan[1-9]' | sort -u | while read -r fan; do
-      echo $fan ($(cat /sys/devices/platform/applesmc.768/$fan"_label")) min : $(cat /sys/devices/platform/applesmc.768/$fan"_min") max: $(cat /sys/devices/platform/applesmc.768/$fan"_max") output:$(cat /sys/devices/platform/applesmc.768/$fan"_output")
+      echo $fan ($(cat /sys/devices/platform/applesmc.768/$fan"_label")) min: $(cat /sys/devices/platform/applesmc.768/$fan"_min") max: $(cat /sys/devices/platform/applesmc.768/$fan"_max") output:$(cat /sys/devices/platform/applesmc.768/$fan"_output")
     done
 fi
 
