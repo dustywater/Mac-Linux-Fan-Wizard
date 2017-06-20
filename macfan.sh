@@ -17,6 +17,11 @@ function checkperm () {
 if [ "$1" = "speed" ]; then
     if [ -f "/sys/devices/platform/applesmc.768/$2_min" ]; then
         checkperm
+        expression='^[0-9]+$'
+        if ! [[ $3 =~ $expression ]] ; then
+            echo "You didn't specify a valid RPM... Numbers only :("
+            exit 1
+        fi
         echo 1 > /sys/devices/platform/applesmc.768/$2_manual
         echo $3 > /sys/devices/platform/applesmc.768/$2_output
         echo "I think I changed $2's speed! :)"
@@ -59,13 +64,10 @@ if [ "$1" = "install" ]; then
             echo "Installation failed! ;_;"
             exit 1
         fi
+    else
+        echo "I couldn't find 'macfan.sh' :( Did you rename it?"
+        exit 1
     fi
 fi
 
-if [ "$1" = "help" ]; then
 help
-fi
-
-if [ "$1" = "" ]; then
-help
-fi
