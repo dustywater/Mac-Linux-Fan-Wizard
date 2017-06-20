@@ -48,7 +48,7 @@ if [ "$1" = "install" ]; then
     popd > /dev/null
     cd $SCRIPTPATH
     if [ "$SCRIPTPATH" = "$install_dir" ]; then
-        echo "You cannot install me on top of myself... Dummy"
+        echo "You cannot install me on top of myself... :/"
         exit 1
     fi
     if [ -f macfan.sh ]; then
