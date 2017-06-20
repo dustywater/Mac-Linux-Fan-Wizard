@@ -3,8 +3,8 @@ Simple program to control your Macintosh fan speed when running linux.
 
 Tested on:
 -----
-iMac 5,1 /w Manjaro 17.0
-MacBook Pro 12,1 /w Manjaro 17.0
+- iMac 5,1 /w Manjaro 17.0
+- MacBook Pro 12,1 /w Manjaro 17.0
 
 Help:
 -----    
