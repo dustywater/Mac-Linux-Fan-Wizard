@@ -5,6 +5,7 @@ Tested on:
 -----
 - iMac 5,1 /w Manjaro 17.0
 - MacBook Pro 12,1 /w Manjaro 17.0
+- Mac Pro 1,1/2,1 /w Ubuntu 16.04
 
 Help:
 -----    
