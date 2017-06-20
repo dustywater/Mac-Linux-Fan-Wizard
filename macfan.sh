@@ -14,6 +14,7 @@ if [ "$1" = "speed" ]; then
     else
         echo "I cannot find that fan :( Run 'macfan list' to see what fans are available."
         exit 1
+    fi
 fi
     
 
