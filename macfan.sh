@@ -6,17 +6,24 @@ function help () {
 }
 
 if [ "$1" = "speed" ]; then
-    echo 1 > /sys/devices/platform/applesmc.768/$2_manual
-    echo $3 > /sys/devices/platform/applesmc.768/$2_output
-    echo "I think I changed $2's speed! :)"
+    if [ -f "/sys/devices/platform/applesmc.768/$2_min" ]; then
+        echo 1 > /sys/devices/platform/applesmc.768/$2_manual
+        echo $3 > /sys/devices/platform/applesmc.768/$2_output
+        echo "I think I changed $2's speed! :)"
+        exit 0
+    else
+        echo "I cannot find that fan :( Run 'macfan list' to see what fans are available."
+        exit 1
+    fi
 fi
     
 
 if [ "$1" = "list" ]; then
     echo Here are the fans I found:
     ls /sys/devices/platform/applesmc.768/ | grep -Eo 'fan[1-9]' | sort -u | while read -r fan; do
-      echo $fan min: $(cat /sys/devices/platform/applesmc.768/$fan"_min") max: $(cat /sys/devices/platform/applesmc.768/$fan"_max") output:$(cat /sys/devices/platform/applesmc.768/$fan"_output")
+      echo $fan ($(cat /sys/devices/platform/applesmc.768/$fan"_label")) min: $(cat /sys/devices/platform/applesmc.768/$fan"_min") max: $(cat /sys/devices/platform/applesmc.768/$fan"_max") output:$(cat /sys/devices/platform/applesmc.768/$fan"_output")
     done
+    exit 0
 fi
 
 if [ "$1" = "install" ]; then
@@ -27,6 +34,10 @@ if [ "$1" = "install" ]; then
     cd $SCRIPTPATH
     if [ -f macfan.sh ]; then
         cp macfan.sh /usr/local/bin/macfan
+        # Only root can edit this file.
+        sudo chown root:root /usr/local/bin/macfan
+        chmod 755 /usr/local/bin/macfan
+        exit 0
     else
         echo "I couldn't find macfan.sh! :( Did you rename it?" 
         exit 1
