@@ -42,11 +42,11 @@ if [ "$1" = "install" ]; then
     SCRIPTPATH=`pwd -P`
     popd > /dev/null
     cd $SCRIPTPATH
+    if [ "$SCRIPTPATH" = "$install_dir" ]; then
+        echo "You cannot install me on top of myself... Dummy"
+        exit 1
+    fi
     if [ -f macfan.sh ]; then
-        if [ "$SCRIPTPATH" = "$install_dir" ]; then
-            echo "You cannot install me on top of myself... Dummy"
-            exit 1
-        fi
         echo -e "I am installing myself to your Macintosh...\nInstall dir: $install_dir"
         cp macfan.sh $install_dir/macfan
         # Only root can edit this file.
@@ -59,10 +59,6 @@ if [ "$1" = "install" ]; then
             echo "Installation failed! ;_;"
             exit 1
         fi
-    else
-        if [ $SCRIPTPATH == 
-        echo "I couldn't find macfan.sh! :( Did you rename it?" 
-        exit 1
     fi
 fi
 
