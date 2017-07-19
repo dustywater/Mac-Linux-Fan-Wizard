@@ -3,7 +3,8 @@
 install_dir="/usr/local/bin"
 
 function help () {
-    echo -e "Version: 1.0\n\nUsage: macfan OPTION [FAN] [SPEED]\n\nOptions:\nhelp = Show this help screen\nspeed = Change speed of your chosen fan\nlist = List Mac fans\ninstall = Install this script to your system\n\nThanks for using Mac Linux Fan Wizard!\n"
+    echo -e "Version: 1.0\n\nUsage: macfan OPTION [FAN] 
+[SPEED]\n\nOptions:\nhelp = Show this help screen\nspeed = Change speed of your chosen fan\nauto = Change specified fan to automatic mode\nlist = List Mac fans\ninstall = Install this script to your system\n\nThanks for using Mac Linux Fan Wizard!\n"
     exit 0
 }
 
@@ -32,6 +33,12 @@ if [ "$1" = "speed" ]; then
     fi
 fi
     
+if [ "$1" = "auto" ]; then
+	checkperm
+	echo 0 > /sys/devices/platform/applesmc.768/$2_manual 
+	echo Changing $2 to auto!
+	exit 0
+fi
 
 if [ "$1" = "list" ]; then
     echo Here are the fans I found:
