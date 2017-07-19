@@ -14,6 +14,7 @@ Help:
     Options:
     help = Show this help screen 
     speed = Change speed of your chosen fan
+    auto = Change specified fan to automatic mode
     list = List Mac fans
     install = Install this script to your system
     
