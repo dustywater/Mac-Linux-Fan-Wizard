@@ -28,16 +28,21 @@ if [ "$1" = "speed" ]; then
         echo "I think I changed $2's speed! :)"
         exit 0
     else
-        echo "I cannot find that fan :( Run 'macfan list' to see what fans are available."
+        echo "I cannot find that fan (or non specified) :( Run 'macfan list' to see what fans are available."
         exit 1
     fi
 fi
-    
+
 if [ "$1" = "auto" ]; then
-	checkperm
-	echo 0 > /sys/devices/platform/applesmc.768/$2_manual 
-	echo Changing $2 to auto!
-	exit 0
+    if [ -f "/sys/devices/platform/applesmc.768/$2_manual" ]; then
+        checkperm
+        echo 0 > /sys/devices/platform/applesmc.768/$2_manual
+        echo Changing $2 to auto!
+        exit 0
+    else
+        echo "I cannot find that fan (or non specified) :( Run 'macfan list' to see what fans are available."
+        exit 1
+    fi
 fi
 
 if [ "$1" = "list" ]; then
