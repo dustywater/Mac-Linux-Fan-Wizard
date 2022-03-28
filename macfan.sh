@@ -67,7 +67,7 @@ if [ "$1" = "install" ]; then
         echo -e "I am installing myself to your Macintosh...\nInstall dir: $install_dir"
         cp macfan.sh $install_dir/macfan
         # Only root can edit this file.
-        sudo chown root:root $install_dir/macfan
+        chown root:root $install_dir/macfan
         chmod 755 $install_dir/macfan
         if [ -f "$install_dir/macfan" ]; then
             echo -e "Installation success! SHA1: "$(sha1sum "$install_dir/macfan")
