@@ -6,6 +6,7 @@ Tested on:
 - iMac 5,2 /w Manjaro 17.0
 - MacBook Pro 12,1 /w Manjaro 17.0, Ubuntu 17.04, KDE Neon User Edition LTS, Antergos.
 - Mac Pro 1,1/2,1 /w Ubuntu 16.04
+- MacBook 7,1 /w Debian 11
 
 Help:
 -----    
