@@ -1,5 +1,5 @@
 # Mac-Linux-Fan-Wizard
-Simple program to control your Macintosh fan speed when running linux.
+Simple program to control your Intel Macintosh fan speed when running linux.
 
 Tested on:
 -----
